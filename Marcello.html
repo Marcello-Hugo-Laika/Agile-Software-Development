@@ -14,19 +14,108 @@
             height: 110vh;
             /* font-family: 'Poppins', sans-serif; */
         }
+
+        table {
+            border-spacing: 6px;
+            /* border: 1px solid black; */
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        th, tr, td {
+            border-spacing: 6px;
+            /* border: 1px solid black; */
+        }
+
+        td {
+            text-align: center;
+            vertical-align: top;
+        }
+
+        /* .ads {
+            background-image: url('https://static.wixstatic.com/media/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg/v1/fill/w_1000,h_555,al_c,q_85,usm_0.66_1.00_0.01/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100px;
+        } */
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            background-color: blue;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bar-down {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* justify-content: right; */
+            height: 30px;
+            background-color: rgb(16, 59, 152);
+            margin: 0;
+            padding: 0;
+        }
+
+        .billboard {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .billboard {
+                transform: scale(0.8);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <h1 class="text">Hello !</h1>
-    <p>Ini adalah Latihan Awal</p>
-    <p>Selamat datang ke website saya !</p>
+    <!-- <h1 class="text">Hello !</h1> -->
+    <!-- <p>Ini adalah Latihan Awal</p>
+    <p>Selamat datang ke website saya !</p> -->
     <!-- <img src="https://media.istockphoto.com/id/910919144/de/vektor/vektor-stadt-kreuzung-mit-ampel.jpg?s=612x612&w=0&k=20&c=ib7AtUdI8_wPZlyklPxyU2OTIQ0i90E1PfshGgJ44oo="> -->
     <!-- <img src="https://st4.depositphotos.com/3991093/28757/v/450/depositphotos_287573886-stock-illustration-city-road-with-crossroads-traffic.jpg"> -->
     <!-- <img src="https://st4.depositphotos.com/5398292/24003/v/450/depositphotos_240034906-stock-illustration-empty-urban-billboard-with-lamp.jpg"> -->
     <!-- <img src="https://img.freepik.com/vector-premium/tablon-grande-urbano-vacio-o-cartelera-lampara-maqueta-blanco-marketing-publicidad-fondo-hierba-cielo-nubes-ilustracion-vector-estilo-plano_169241-3882.jpg"> -->
     <!-- <img src="https://cdn3.vectorstock.com/i/1000x1000/79/52/blank-advertising-billboard-canvas-mockup-vector-24897952.jpg"> -->
     <!-- <img src="https://previews.123rf.com/images/drogatnev/drogatnev1904/drogatnev190400026/124062817-pusty-miejski-du%C5%BCy-plansza-lub-billboard-z-lamp%C4%85-pusta-makieta-marketing-i-reklama-gr%C3%B3d-t%C5%82o-z.jpg"> -->
+    <table>
+        <tr style="height: 80px;">
+            <th style="width: 28%;"></th>
+            <th style="width: 44%;">
+                <h2 class="text">Hello there !</h2>
+            </th>
+            <th style="width: 28%;">
+            </th>
+        </tr>
+        <tr style="height: 250px;">
+            <td></td>
+            <td class="ads" style="width: 44%;">
+                <div class="billboard">
+                    <div class="bar">
+                    <p class="text"><strong>Welcome to My Personal Website</strong></p>
+                </div>
+                    <!-- <p>Welcome to Webby</p> -->
+                    <img src="https://static.wixstatic.com/media/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg/v1/fill/w_1000,h_555,al_c,q_85,usm_0.66_1.00_0.01/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg"
+                        style="width: 59%;">
+                    <marquee behavior="scroll" direction="left" style="background-color: rgb(16, 59, 152); color: white; padding: 10px;">
+                    Made by Marcello
+                </marquee>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
 </body>
 
 </html>
