@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> <!-- Font 1 (Time)-->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> <!-- Font 2 (Time) Chosen -->
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet"> <!-- Font 3 (Time)-->
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet"> <!-- Font 4 (Time)-->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet"> <!-- Font 5 (Time)-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet"> <!-- Font (Date)-->
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Quicksand&display=swap" rel="stylesheet"> <!-- Font (Date) Chosen -->
+    <style>
+        body {
+            background-image: url('https://cdn3.vectorstock.com/i/1000x1000/79/52/blank-advertising-billboard-canvas-mockup-vector-24897952.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 110vh;
+            /* font-family: 'Poppins', sans-serif; */
+        }
+
+        .text {
+            color: white;
+        }
+
+        .text-poppins {
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        table {
+            border-spacing: 6px;
+            /* border: 1px solid black; */
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        th, tr, td {
+            border-spacing: 6px;
+            /* border: 1px solid black; */
+        }
+
+        td {
+            text-align: center;
+            vertical-align: top;
+        }
+
+        /* .ads {
+            background-image: url('https://static.wixstatic.com/media/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg/v1/fill/w_1000,h_555,al_c,q_85,usm_0.66_1.00_0.01/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100px;
+        } */
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            background-color: blue;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bar-down {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* justify-content: right; */
+            height: 30px;
+            background-color: rgb(16, 59, 152);
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-glow {
+            /* color: #ee979f; */
+            color: white;
+            /* text-shadow: 0 0 10px #FFCBCB, 0 0 20px #6366f1, 0 0 30px #9333ea; */
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #6366f1, 0 0 30px #9333ea;
+            transition: color 0.5s ease, text-shadow 0.8s ease;
+        }
+
+        #time {
+            /* font-family: 'Orbitron', sans-serif; */
+            font-family: 'Share Tech Mono', monospace;
+            /* font-family: 'Audiowide', cursive; */
+            /* font-family: 'Rajdhani', sans-serif; */
+            /* font-family: 'Major Mono Display', monospace; */
+            /* font-family: 'VT323', monospace; */
+            font-size: 35px;
+        }
+        #date {
+            /* font-family: 'Orbitron', sans-serif; */
+            /* font-family: 'Share Tech Mono', monospace; */
+            /* font-family: 'Rajdhani', sans-serif; */
+            /* font-family: 'Major Mono Display', monospace; */
+            /* font-family: 'VT323', monospace; */
+            
+            /* font-family: 'Raleway', sans-serif; */
+            /* font-family: 'Exo 2', sans-serif; */
+            /* font-family: 'Open Sans', sans-serif; */
+            font-family: 'Quicksand', sans-serif;
+            font-size: 25px;
+        }
+
+        .billboard {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .billboard {
+                transform: scale(0.8);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1 class="text">Hello !</h1> -->
+    <!-- <p>Ini adalah Latihan Awal</p>
+    <p>Selamat datang ke website saya !</p> -->
+    <!-- <img src="https://media.istockphoto.com/id/910919144/de/vektor/vektor-stadt-kreuzung-mit-ampel.jpg?s=612x612&w=0&k=20&c=ib7AtUdI8_wPZlyklPxyU2OTIQ0i90E1PfshGgJ44oo="> -->
+    <!-- <img src="https://st4.depositphotos.com/3991093/28757/v/450/depositphotos_287573886-stock-illustration-city-road-with-crossroads-traffic.jpg"> -->
+    <!-- <img src="https://st4.depositphotos.com/5398292/24003/v/450/depositphotos_240034906-stock-illustration-empty-urban-billboard-with-lamp.jpg"> -->
+    <!-- <img src="https://img.freepik.com/vector-premium/tablon-grande-urbano-vacio-o-cartelera-lampara-maqueta-blanco-marketing-publicidad-fondo-hierba-cielo-nubes-ilustracion-vector-estilo-plano_169241-3882.jpg"> -->
+    <!-- <img src="https://cdn3.vectorstock.com/i/1000x1000/79/52/blank-advertising-billboard-canvas-mockup-vector-24897952.jpg"> -->
+    <!-- <img src="https://previews.123rf.com/images/drogatnev/drogatnev1904/drogatnev190400026/124062817-pusty-miejski-du%C5%BCy-plansza-lub-billboard-z-lamp%C4%85-pusta-makieta-marketing-i-reklama-gr%C3%B3d-t%C5%82o-z.jpg"> -->
+    <table>
+        <tr style="height: 80px;">
+            <th style="width: 28%;"></th>
+            <th style="width: 44%;">
+                <h2 class="text">Hello there !</h2>
+            </th>
+            <th style="width: 28%; vertical-align: top; text-align: right;">
+                <p id="time" class="text-glow" style="margin: 0; padding-top: 0;"></p>
+                <p id="date" class="text-glow" style="margin: 0;"></p>
+                <script>
+                    function updateTimeAndColor() {
+                        const timeElement = document.getElementById('time');
+                        const now = new Date();
+                        const dateElement = document.getElementById('date');
+                        let hours = now.getHours();
+                        const minutes = now.getMinutes().toString().padStart(2, '0');
+                        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                        let ampm = hours >= 12 ? 'PM' : 'AM';
+                        let displayHour = hours % 12 || 12;
+
+                        // Tentukan warna berdasarkan jam dan AM/PM
+                        let color = 'white';
+                        let shadow = '0 0 10px white, 0 0 20px white, 0 0 30px white';
+
+                        if (ampm === 'AM') { // -> AM
+                            if (displayHour >= 1 && displayHour <= 3) {
+                                color = 'white';                // Jam 1 - 3 -> Putih
+                                shadow = '0 0 10px black, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 4 && displayHour <= 5) {
+                                color = '#003D7E';         // Jam 4 - 5 -> Biru Tua
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 6 && displayHour <= 8) {
+                                color = '#006AFF';         // Jam 6 - 8 -> Biru
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 9 && displayHour <= 10) {
+                                color = '#43E3FF';        // Jam 9 - 10 -> Biru Muda
+                                shadow = '0 0 10px #BAF5FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 11 && displayHour <= 12) {
+                                color = '#FFFF01';       // Jam 11 - 12 -> Kuning Cerah
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            }
+                        } else { // -> PM
+                            if (displayHour >= 1 && displayHour <= 2) {
+                                color = '#FFEA00';              // Jam 1 - 2 -> Kuning
+                                shadow = '0 0 10px #FFFF01, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 3 && displayHour <= 4) {
+                                color = '#FBBF24';         // Jam 3 - 4 -> Jingga
+                                shadow = '0 0 10px #FFEA00, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 5 && displayHour <= 6) {
+                                color = '#43BDFF';         // Jam 5 - 6 -> Biru Muda-2
+                                shadow = '0 0 10px #2F97FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 7 && displayHour <= 8) {
+                                color = '#0073FF';         // Jam 7 - 8 -> Biru-2
+                                shadow = '0 0 10px #43E3FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 9 && displayHour <= 10) {
+                                color = '#003D7E';        // Jam 9 - 10 -> Biru Tua
+                                shadow = '0 0 10px #0073FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 11 && displayHour <= 12) {
+                                color = 'black';         // Jam 11 - 12 -> Hitam
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            }
+                        }
+
+                        timeElement.style.color = color; // -> terapkan var color ke dalam style dari timeElement
+                        timeElement.style.textShadow = shadow; // -> terapkan var shadow ke dalam style dari timeElement
+                        timeElement.innerText = `${displayHour}:${minutes}:${seconds} ${ampm}`;
+                        // Format tanggal lokal Indonesia
+                        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                        // const formattedDate = now.toLocaleDateString('id-ID', options); // bahasa Indonesia
+                        const formattedDate = now.toLocaleDateString('en-US', options); // bahasa English
+
+                        // Tampilkan tanggal
+                        dateElement.innerText = formattedDate;
+                        dateElement.style.color = color;
+                        dateElement.style.textShadow = shadow;
+                    }
+                    // setInterval(() => {
+                    //     document.getElementById('time').innerText = new Date().toLocaleTimeString();
+                    // }, 1000);
+                    setInterval(updateTimeAndColor, 1000);
+                    updateTimeAndColor();
+                </script>
+            </th>
+        </tr>
+        <tr style="height: 250px;">
+            <td></td>
+            <td class="ads" style="width: 44%;">
+                <div class="billboard">
+                    <marquee behavior="scroll" direction="left"
+                        style="background-color: #ffffff00; color: white; padding: 10px; font-family: 'Courier New'; background: linear-gradient(to right, #3b82f6, #9333ea);">
+                        <strong>Welcome to My Personal Website</strong>
+                    </marquee>
+                    <!-- <div class="bar">
+                    <p class="text"><strong>Welcome to My Personal Website</strong></p>
+                </div> -->
+                    <!-- <p>Welcome to Webby</p> -->
+                    <img src="https://static.wixstatic.com/media/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg/v1/fill/w_1000,h_555,al_c,q_85,usm_0.66_1.00_0.01/33c6f7_5a58c42f328942199e81fed021b0b091~mv2.jpg"
+                        style="width: 59%;">
+                    <!-- <marquee behavior="scroll" direction="left" style="background-color: rgb(16, 59, 152); color: white; padding: 10px;">
+                    Made by Marcello
+                </marquee> -->
+                    <div class="bar-down">
+                        <p class="text-poppins"><strong>Made by Marcello</strong></p>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>
