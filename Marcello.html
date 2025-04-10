@@ -124,11 +124,71 @@
                 <h2 class="text">Hello there !</h2>
             </th>
             <th style="width: 28%; vertical-align: top; text-align: right;">
-                <p id="time" class="text-glow" style="font-size: 24px; margin: 0; padding-top: 0;"></p>
+                <p id="time" class="text-glow" style="margin: 0; padding-top: 0;"></p>
                 <script>
-                    setInterval(() => {
-                        document.getElementById('time').innerText = new Date().toLocaleTimeString();
-                    }, 1000);
+                    function updateTimeAndColor() {
+                        const timeElement = document.getElementById('time');
+                        const now = new Date();
+                        const dateElement = document.getElementById('date');
+                        let hours = now.getHours();
+                        const minutes = now.getMinutes().toString().padStart(2, '0');
+                        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                        let ampm = hours >= 12 ? 'PM' : 'AM';
+                        let displayHour = hours % 12 || 12;
+
+                        // Tentukan warna berdasarkan jam dan AM/PM
+                        let color = 'white';
+                        let shadow = '0 0 10px white, 0 0 20px white, 0 0 30px white';
+                        
+                        if (ampm === 'AM') { // -> AM
+                            if (displayHour >= 1 && displayHour <= 3) {
+                                color = 'white';                // Jam 1 - 3 -> Putih
+                                shadow = '0 0 10px black, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 4 && displayHour <= 5) {
+                                color = '#003D7E';         // Jam 4 - 5 -> Biru Tua
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 6 && displayHour <= 8) {
+                                color = '#006AFF';         // Jam 6 - 8 -> Biru
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 9 && displayHour <= 10) {
+                                color = '#43E3FF';        // Jam 9 - 10 -> Biru Muda
+                                shadow = '0 0 10px #BAF5FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 11 && displayHour <= 12) {
+                                color = '#FFFF01';       // Jam 11 - 12 -> Kuning Cerah
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            }
+                        } else { // -> PM
+                            if (displayHour >= 1 && displayHour <= 2) {
+                                color = '#FFEA00';              // Jam 1 - 2 -> Kuning
+                                shadow = '0 0 10px #FFFF01, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 3 && displayHour <= 4) {
+                                color = '#FBBF24';         // Jam 3 - 4 -> Jingga
+                                shadow = '0 0 10px #FFEA00, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 5 && displayHour <= 6) {
+                                color = '#43BDFF';         // Jam 5 - 6 -> Biru Muda-2
+                                shadow = '0 0 10px #2F97FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 7 && displayHour <= 8) {
+                                color = '#0073FF';         // Jam 7 - 8 -> Biru-2
+                                shadow = '0 0 10px #43E3FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 9 && displayHour <= 10) {
+                                color = '#003D7E';        // Jam 9 - 10 -> Biru Tua
+                                shadow = '0 0 10px #0073FF, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            } else if (displayHour >= 11 && displayHour <= 12) {
+                                color = 'black';         // Jam 11 - 12 -> Hitam
+                                shadow = '0 0 10px white, 0 0 20px #6366f1, 0 0 30px #9333ea';
+                            }
+                        }
+
+                        timeElement.style.color = color; // -> terapkan var color ke dalam style dari timeElement
+                        timeElement.style.textShadow = shadow; // -> terapkan var shadow ke dalam style dari timeElement
+                        timeElement.innerText = `${displayHour}:${minutes}:${seconds} ${ampm}`;
+                    }
+                    // setInterval(() => {
+                    //     document.getElementById('time').innerText = new Date().toLocaleTimeString();
+                    // }, 1000);
+                    setInterval(updateTimeAndColor, 1000);
+                    updateTimeAndColor();
                 </script>
             </th>
         </tr>
