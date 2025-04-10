@@ -71,6 +71,14 @@
             padding: 0;
         }
 
+        .text-glow {
+            /* color: #ee979f; */
+            color: white;
+            /* text-shadow: 0 0 10px #FFCBCB, 0 0 20px #6366f1, 0 0 30px #9333ea; */
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #6366f1, 0 0 30px #9333ea;
+            transition: color 0.5s ease, text-shadow 0.8s ease;
+        }
+
         .billboard {
             width: 100%;
             margin: 0 auto;
@@ -100,7 +108,13 @@
             <th style="width: 44%;">
                 <h2 class="text">Hello there !</h2>
             </th>
-            <th style="width: 28%;">
+            <th style="width: 28%; vertical-align: top; text-align: right;">
+                <p id="time" class="text-glow" style="font-size: 24px; margin: 0; padding-top: 0;"></p>
+                <script>
+                    setInterval(() => {
+                        document.getElementById('time').innerText = new Date().toLocaleTimeString();
+                    }, 1000);
+                </script>
             </th>
         </tr>
         <tr style="height: 250px;">
