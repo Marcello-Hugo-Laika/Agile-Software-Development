@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-image: url('assets/About-Bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 110vh; */
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .animation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .bg-zoom {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 110vh;
+            background-image: url('assets/About-Bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: scale(1.2);
+            animation: bgZoomOut 3s forwards ease-in-out;
+            /* z-index: -1; */
+            /* border: 2px solid red; */
+        }
+        .shrink-fade {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            animation: shrinkAndFade 2s forwards ease-in-out;
+            z-index: 1;
+        }
+        .content {
+            opacity: 0;
+            animation: fadeIn 0.5s ease-in-out 3s forwards;
+            position: relative;
+            z-index: 0;
+            min-height: 100vh;
+        }
+        table {
+            border-spacing: 6px;
+            border: 1px solid black;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        th,
+        tr,
+        td {
+            border-spacing: 6px;
+            border: 1px solid black;
+        }
+        @keyframes bgZoomOut {
+            0% {
+                transform: scale(5.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shrinkAndFade {
+            0% {
+                transform: scale(1.1) translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.5) translateY(-150px) translateX(-100px);
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<script>
+    setTimeout(() => {
+        document.querySelector('.animation-overlay')?.remove();
+    }, 3500); // setelah animasi selesai
+</script>
+<body>
+    <!-- <img src="https://st4.depositphotos.com/6093060/25621/v/450/depositphotos_256210974-stock-illustration-flat-interior-design-landscape-with.jpg"> -->
+    <!-- <img src="https://st5.depositphotos.com/3877249/65711/v/450/depositphotos_657114190-stock-illustration-cartoon-living-room-interior-night.jpg"> -->
+    <!-- <div class="bg-zoom"></div> -->
+    <div class="bg-zoom"></div>
+    <div class="animation-overlay">
+        <img src="assets/Welcome-Bg.png" class="shrink-fade">
+    </div>
+    <div class="content">
+        <table>
+            <tr>
+                <th>About</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <!-- <img src="assets/Welcome-Bg.png" style="width: 100vw; height: 100vh; object-fit: cover;" class="shrink-fade"> -->
+</body>
+</html>
