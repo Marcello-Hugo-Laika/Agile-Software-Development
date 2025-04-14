@@ -14,4 +14,4 @@ Link antar Website anggota
 - JavaScript
 
 ## Dibuat oleh
-[@Marcello-Hugo-Laika(https://github.com/Marcello-Hugo-Laika)
+[@Marcello-Hugo-Laika](https://github.com/Marcello-Hugo-Laika)
