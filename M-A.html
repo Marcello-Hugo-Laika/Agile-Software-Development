@@ -95,13 +95,31 @@
                 opacity: 1;
             }
         }
+        .page-transition {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            opacity: 0;
+            z-index: 9999;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
 <script>
     setTimeout(() => {
-        document.querySelector('.animation-overlay')?.remove();
-        window.location.href = 'About.html'; // -> redirect ke halaman About.html (otomatis)
-    }, 3500); // setelah animasi selesai
+        const overlay = document.querySelector('.animation-overlay');
+        if (overlay) overlay.remove();
+
+        const transitionDiv = document.querySelector('.page-transition');
+        transitionDiv.style.opacity = '1';
+
+        setTimeout(() => {
+            window.location.href = 'About.html'; // -> redirect otomatis
+        }, 500); // durasi fade-out
+    }, 3000); // waktu tunggu animasi
 </script>
 <body>
     <!-- <img src="https://st4.depositphotos.com/6093060/25621/v/450/depositphotos_256210974-stock-illustration-flat-interior-design-landscape-with.jpg"> -->
@@ -124,5 +142,6 @@
         </table>
     </div> -->
     <!-- <img src="assets/Welcome-Bg.png" style="width: 100vw; height: 100vh; object-fit: cover;" class="shrink-fade"> -->
+    <div class="page-transition"></div>
 </body>
 </html>
