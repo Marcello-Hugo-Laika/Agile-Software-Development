@@ -46,21 +46,108 @@
         tr,
         td {
             border-spacing: 6px;
-            /* border: 1px solid black; */
+            border: 1px solid black;
         }
 
-        .circle-bg {
+        .form-bg {
             width: 100%;
             height: 100%;
             border-radius: 10%;
-            background-color: rgba(255, 255, 255, 0.7);
+            background-color: rgba(252, 180, 147, 0.5);
             border: 2px solid rgba(255, 255, 255, 0.7); /* border */
-            /* position: absolute; */
             top: 50%;
             left: 50%;
-            /* transform: translate(-50%, -50%); */
             z-index: 0;
+            opacity: 0; /* default invisible */
+            animation: fadeSlideUp 1s ease-out forwards;
+                       /* colorCycle 10s linear infinite; */
         }
+
+        .fade1 {
+            animation-delay: 0.3s;
+        }
+
+        .fade2 {
+            animation-delay: 0.8s;
+        }
+
+        .navbar-bottom {
+            display: flex;
+            gap: 20%;
+            align-items: center;
+            justify-content: center;
+            /* height: 50%; */
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            /* gap: 40px;  */
+            background: rgba(255, 255, 255, 0.422);
+            padding: 10px 20px;
+            border-radius: 20px;
+        }
+
+        .icon-button {
+            text-align: center;
+        }
+
+        .icon-current {
+            transition: 0.3s;
+            filter: drop-shadow(0 0 22px #5de8fa) drop-shadow(0 0 24px rgba(167, 139, 250, 0.5));
+        }
+
+        .icon-text-current {
+            text-shadow: 0 0 8px #5de8fa;
+        }
+
+        .icon-img {
+            width: 50px;
+            height: 50px;
+            transition: all 0.3s ease;
+            /* filter: drop-shadow(0 0 12px rgba(167, 139, 250, 0.7)) drop-shadow(0 0 24px rgba(167, 139, 250, 0.5)); */
+        }
+
+        .icon-button:hover .home {
+            content: url("assets/home-icon4.png");
+        }
+
+        .icon-button:hover .icon-img {
+            filter: drop-shadow(0 0 22px #FBD987) drop-shadow(0 0 24px rgba(245, 146, 84, 0.5));
+            /* filter: brightness(1.2); */
+            /* transform: scale(1.2); */
+            transition: 0.3s ease;
+        }
+
+        .icon-button:hover .icon-text {
+            color: #fc8c4b;
+            text-shadow: 0 0 8px #FBD987;
+            /* transition: color 0.3s ease; */
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        @keyframes fadeSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Infinite color changes */
+        /* @keyframes colorCycle {
+            0%   { background-color: rgba(252, 180, 147, 0.7); }
+            25%  { background-color: rgba(255, 208, 100, 0.7); }
+            50%  { background-color: rgba(147, 252, 188, 0.7); }
+            75%  { background-color: rgba(147, 203, 252, 0.7); }
+            100% { background-color: rgba(252, 180, 147, 0.7); }
+        } */
     </style>
 </head>
 <body>
@@ -76,17 +163,30 @@
         <tr style="height: 350px;">
             <td></td>
             <td style="width: 34%;">
-                <div class="circle-bg"></div>
+                <div class="form-bg fade1"></div>
             </td style="width: 10px;">
             <td></td>
             <td style="width: 34%;">
-                <div class="circle-bg"></div>
+                <div class="form-bg fade2"></div>
             </td>
             <td></td>
         </tr>
         <tr>
             <td colspan="5">
-
+                <div class="navbar-bottom">
+                    <a href="Marcello.html">
+                        <div class="icon-button">
+                            <img src="assets/home-icon.png" width="50" height="50" class="icon-img home">
+                            <span style="font-family: sans-serif; font-size: 14px;"
+                                class="icon-text"><strong>Home</strong></span>
+                        </div>
+                    </a>
+                    <div class="icon-button">
+                        <img src="assets/user-icon2.png" width="50" height="50" class="icon-current">
+                        <span style="color: white; font-family: sans-serif; font-size: 14px;"
+                            class="icon-text-current"><strong>About</strong></span>
+                    </div>
+                </div>
             </td>
         </tr>
     </table>
