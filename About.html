@@ -453,27 +453,182 @@
                 '<a href="https://wa.me/6281367466909" target="_blank"><p class="text-poppins-left"><div class="contact"><img src="assets/whatsapp-icon.svg" style="width: 20px; height: 20px;"><span>+62 81367466909</span></div></p></a><a href="https://instagram.com/marcello.h.laika" target="_blank"><p class="text-poppins-left"><div class="contact"><img src="assets/instagram-icon.webp" style="width: 20px; height: 20px;"><span>@marcello.h.laika</span></div></p></a><a href="mailto:marcellohugolaika@gmail.com"><p class="text-poppins-left"><div class="contact"><img src="assets/gmail-icon.png" style="width: 20px; height: 17px;"><span>marcellohugolaika@gmail.com</span></div></p></a><a href="mailto:marcello@students.mikroskil.ac.id"><p class="text-poppins-left"><div class="contact"><img src="assets/teams-icon.png" style="width: 20px; height: 20px;"><span>marcello@students.mikroskil.ac.id</span></div></p></a>'
         };
 
-        // Fungsi untuk menampilkan konten
+        // Fungsi untuk menampilkan konten secara instan
+        // function showContent(type) {
+        //     const contentBox = document.getElementById("content-box");
+
+        //     // Menghapus class active dari semua elemen
+        //     document.querySelectorAll(".list-element").forEach(el => {
+        //         el.classList.remove("active");
+        //     });
+
+        //     // Menambahkan class active ke elemen yang dipilih
+        //     const clickedElement = event.currentTarget;
+        //     clickedElement.classList.add("active");
+
+        //     // Memperbarui konten di content-box
+        //     const selectedContent = contentData[type];
+        //     // contentBox.innerHTML = `
+        //     //     <h2 class="text-poppins">${selectedContent.title}</h2>
+        //     //     <p class="text-poppins">${selectedContent.content}</p>
+        //     // `;
+        //     contentBox.innerHTML = `${selectedContent}`;
+
+        //     ketikTeks(`${selectedContent}`, contentBox.innerHTML);
+        // }
+
+        // function showContent(type) {
+        //     const contentBox = document.getElementById('content-box');
+        //     contentBox.innerHTML = '';
+
+        //     const elements = document.querySelectorAll('.list-element');
+        //     elements.forEach(el => el.classList.remove('active'));
+
+        //     const clickedElement = [...elements].find(el => el.textContent.toLowerCase().includes(type));
+        //     if (clickedElement) clickedElement.classList.add('active');
+
+        //     const tempDiv = document.createElement('div');
+        //     tempDiv.innerHTML = contentData[type];  // Ambil HTML asli
+
+        //     const children = Array.from(tempDiv.childNodes);
+        //     let childIndex = 0;
+
+        //     function typeNode(node, container, callback) {
+        //         if (node.nodeType === Node.TEXT_NODE) {
+        //             let text = node.textContent;
+        //             let i = 0;
+        //             const interval = setInterval(() => {
+        //                 if (i < text.length) {
+        //                     container.append(text[i]);
+        //                     i++;
+        //                 } else {
+        //                     clearInterval(interval);
+        //                     callback();
+        //                 }
+        //             }, 15); // atur kecepatan ketik di sini
+        //         } else if (node.nodeType === Node.ELEMENT_NODE) {
+        //             const el = document.createElement(node.tagName);
+        //             // Copy semua atribut
+        //             for (let attr of node.attributes) {
+        //                 el.setAttribute(attr.name, attr.value);
+        //             }
+        //             container.appendChild(el);
+        //             const childNodes = Array.from(node.childNodes);
+        //             let idx = 0;
+
+        //             function typeChild() {
+        //                 if (idx < childNodes.length) {
+        //                     typeNode(childNodes[idx], el, () => {
+        //                         idx++;
+        //                         typeChild();
+        //                     });
+        //                 } else {
+        //                     callback();
+        //                 }
+        //             }
+        //             typeChild();
+        //         } else {
+        //             callback(); // skip node lain
+        //         }
+        //     }
+
+        //     function typeNext() {
+        //         if (childIndex < children.length) {
+        //             typeNode(children[childIndex], contentBox, () => {
+        //                 childIndex++;
+        //                 typeNext();
+        //             });
+        //         }
+        //     }
+
+        //     typeNext();
+        // }
+
+        let typingInProgress = false;
+        let currentTimeouts = [];
+
+        function clearTyping() {
+            currentTimeouts.forEach(timeout => clearTimeout(timeout));
+            currentTimeouts = [];
+            typingInProgress = false;
+        }
+
         function showContent(type) {
-            const contentBox = document.getElementById("content-box");
+            clearTyping(); // Stop proses ketik sebelumnya
 
-            // Menghapus class active dari semua elemen
-            document.querySelectorAll(".list-element").forEach(el => {
-                el.classList.remove("active");
-            });
+            const contentBox = document.getElementById('content-box');
+            contentBox.innerHTML = '';
 
-            // Menambahkan class active ke elemen yang dipilih
-            const clickedElement = event.currentTarget;
-            clickedElement.classList.add("active");
+            const elements = document.querySelectorAll('.list-element');
+            elements.forEach(el => el.classList.remove('active'));
 
-            // Memperbarui konten di content-box
-            const selectedContent = contentData[type];
-            // contentBox.innerHTML = `
-            //     <h2 class="text-poppins">${selectedContent.title}</h2>
-            //     <p class="text-poppins">${selectedContent.content}</p>
-            // `;
-            contentBox.innerHTML = `${selectedContent}
-            `;
+            const clickedElement = [...elements].find(el => el.textContent.toLowerCase().includes(type));
+            if (clickedElement) clickedElement.classList.add('active');
+
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = contentData[type];
+
+            const children = Array.from(tempDiv.childNodes);
+            let childIndex = 0;
+            typingInProgress = true;
+
+            function typeNode(node, container, callback) {
+                if (!typingInProgress) return;
+
+                if (node.nodeType === Node.TEXT_NODE) {
+                    let text = node.textContent;
+                    let i = 0;
+
+                    function typeChar() {
+                        if (!typingInProgress) return;
+
+                        if (i < text.length) {
+                            container.append(text[i]);
+                            const timeout = setTimeout(typeChar, 15);
+                            currentTimeouts.push(timeout);
+                            i++;
+                        } else {
+                            callback();
+                        }
+                    }
+                    typeChar();
+
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    const el = document.createElement(node.tagName);
+                    for (let attr of node.attributes) {
+                        el.setAttribute(attr.name, attr.value);
+                    }
+                    container.appendChild(el);
+                    const childNodes = Array.from(node.childNodes);
+                    let idx = 0;
+
+                    function typeChild() {
+                        if (!typingInProgress) return;
+                        if (idx < childNodes.length) {
+                            typeNode(childNodes[idx], el, () => {
+                                idx++;
+                                typeChild();
+                            });
+                        } else {
+                            callback();
+                        }
+                    }
+                    typeChild();
+                } else {
+                    callback();
+                }
+            }
+
+            function typeNext() {
+                if (!typingInProgress) return;
+                if (childIndex < children.length) {
+                    typeNode(children[childIndex], contentBox, () => {
+                        childIndex++;
+                        typeNext();
+                    });
+                }
+            }
+            typeNext();
         }
 
         // Setel konten default (Profile) ketika halaman dimuat
