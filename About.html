@@ -3,60 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            /* background-image: url('assets/About-Bg.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 110vh; */
-            margin: 0;
-            overflow-x: hidden;
-        }
-        .animation-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .bg-zoom {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%;
-            height: 110vh;
+            /* background-image: url('https://cdn3.vectorstock.com/i/1000x1000/79/52/blank-advertising-billboard-canvas-mockup-vector-24897952.jpg'); */
             background-image: url('assets/About-Bg.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            transform: scale(1.2);
-            animation: bgZoomOut 3s forwards ease-in-out;
-            /* z-index: -1; */
-            /* border: 2px solid red; */
+            height: 110vh;
+            /* font-family: 'Poppins', sans-serif; */
         }
-        .shrink-fade {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            animation: shrinkAndFade 2s forwards ease-in-out;
-            z-index: 1;
+        .text {
+            color: white;
         }
-        .content {
-            opacity: 0;
-            animation: fadeIn 0.5s ease-in-out 3s forwards;
-            position: relative;
-            z-index: 0;
-            min-height: 100vh;
+
+        .text-poppins {
+            color: white;
+            font-family: 'Poppins', sans-serif;
         }
+
+        .text-montserrat {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 35px;
+            margin: 20px 0;
+            /* padding: 10px 0; */
+            letter-spacing: 5px;
+        }
+
         table {
             border-spacing: 6px;
-            border: 1px solid black;
+            /* border: 1px solid black; */
             width: 100%;
             height: 100%;
             margin: 0;
@@ -66,62 +46,49 @@
         tr,
         td {
             border-spacing: 6px;
-            border: 1px solid black;
-        }
-        @keyframes bgZoomOut {
-            0% {
-                transform: scale(5.2);
-            }
-            100% {
-                transform: scale(1);
-            }
+            /* border: 1px solid black; */
         }
 
-        @keyframes shrinkAndFade {
-            0% {
-                transform: scale(1.1) translateY(0) translateX(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0.5) translateY(-150px) translateX(-100px);
-                opacity: 0;
-            }
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .circle-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 10%;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.7); /* border */
+            /* position: absolute; */
+            top: 50%;
+            left: 50%;
+            /* transform: translate(-50%, -50%); */
+            z-index: 0;
         }
     </style>
 </head>
-<script>
-    setTimeout(() => {
-        document.querySelector('.animation-overlay')?.remove();
-    }, 3500); // setelah animasi selesai
-</script>
 <body>
-    <!-- <img src="https://st4.depositphotos.com/6093060/25621/v/450/depositphotos_256210974-stock-illustration-flat-interior-design-landscape-with.jpg"> -->
-    <!-- <img src="https://st5.depositphotos.com/3877249/65711/v/450/depositphotos_657114190-stock-illustration-cartoon-living-room-interior-night.jpg"> -->
-    <!-- <div class="bg-zoom"></div> -->
-    <div class="bg-zoom"></div>
-    <div class="animation-overlay">
-        <img src="assets/Welcome-Bg.png" class="shrink-fade">
-    </div>
-    <div class="content">
-        <table>
-            <tr>
-                <th>About</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
-    <!-- <img src="assets/Welcome-Bg.png" style="width: 100vw; height: 100vh; object-fit: cover;" class="shrink-fade"> -->
+    <table>
+        <tr style="height: 85px;">
+            <th style="width: 15%;"></th>
+            <th style="width: 70%; vertical-align: top;" colspan="3">
+                <h2 class="text-montserrat"><strong>About</strong></h2>
+            </th>
+            <th style="width: 15%;">
+            </th>
+        </tr>
+        <tr style="height: 350px;">
+            <td></td>
+            <td style="width: 34%;">
+                <div class="circle-bg"></div>
+            </td style="width: 10px;">
+            <td></td>
+            <td style="width: 34%;">
+                <div class="circle-bg"></div>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="5">
+
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
