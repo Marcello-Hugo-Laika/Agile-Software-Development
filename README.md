@@ -16,3 +16,4 @@ Link antar Website anggota
 ## Dibuat oleh
 [@Marcello-Hugo-Laika](https://github.com/Marcello-Hugo-Laika)
 [@jrdnniel](https://github.com/jrdnniel)
+[@BagasArkaDinata](https://github.com/BagasArkaDinata)
