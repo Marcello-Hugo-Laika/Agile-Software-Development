@@ -12,15 +12,20 @@
     <div class="container">
         <header>
             <div class="header-content">
-                <!-- Ganti src dengan path file lokal -->
                 <img src="image.jpeg" alt="Foto Profil" class="profile-pic">
                 <div class="header-info">
                     <h1>Jordanniel Sihombing</h1>
                     <p>AI Prompt | Medan, Indonesia</p>
                     <div class="contact-info">
-                        <p><i class="fas fa-envelope"></i> jordanniel.saor@students.mikroskil.ac.id</p>
-                        <p><i class="fas fa-phone"></i> 081360024426</p>
-                        <p><i class="fab fa-linkedin"></i> linkedin.com/in/jrdnniel</p>
+                        <p><i class="fas fa-envelope"></i> 
+                            <a href="mailto:jordanniel.saor@students.mikroskil.ac.id">jordanniel.saor@students.mikroskil.ac.id</a>
+                        </p>
+                        <p><i class="fas fa-phone"></i> 
+                            <a href="https://wa.me/6281360024426" target="_blank">WhatsApp: 081360024426</a>
+                        </p>
+                        <p><i class="fab fa-linkedin"></i> 
+                            <a href="https://linkedin.com/in/jrdnniel" target="_blank">linkedin.com/in/jrdnniel</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -38,9 +43,9 @@
                     <ul class="skills-list">
                         <li><i class="fab fa-html5"></i> HTML5</li>
                         <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                        <li><i class="fab fa-js"></i> JavaScript</li>
+                        <li id="javascript-skill"><i class="fab fa-js"></i> JavaScript</li>
                         <li><i class="fab fa-react"></i> React.js</li>
-                        <li><i class="fas fa-drafting-compass"></i> Mobile Front-End</li>
+                        <li id="mobile-skill" class="clickable"><i class="fas fa-drafting-compass"></i> Mobile Front-End</li>
                     </ul>
                 </section>
             </div>
@@ -81,5 +86,15 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById("javascript-skill").addEventListener("click", function() {
+            window.open("https://github.com/jrdnniel/project-semester-3", "_blank");
+        });
+    
+        document.getElementById("mobile-skill").addEventListener("click", function() {
+            window.open("https://github.com/jrdnniel/project-semester-4-front-mobile", "_blank");
+        });
+    </script>
+
 </body>
 </html>
